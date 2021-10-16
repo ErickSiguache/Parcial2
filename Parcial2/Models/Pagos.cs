@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 namespace Parcial2.Models
 {
 
-    public class Pago
+    public class Pagos
     {
 
         [Key]
@@ -13,7 +13,6 @@ namespace Parcial2.Models
         public int OrdenID { get; set; }
         public int MovimientoCajaID { get; set; }
         public string TipoPago { get; set; }
-        public string ReferenciaCliente { get; set; }
         public decimal SubTotal { get; set; }
         public decimal Propina { get; set; }
         public decimal Total { get; set; }
@@ -23,8 +22,8 @@ namespace Parcial2.Models
         public int CreditosID { get; set; }
         public int tarjetaNumero { get; set; }
         public string nombreTarjeta { get; set; }
-        public string autorizacionn { get; set; }
-        public int estado { get; set; }
+        public string autorizacion { get; set; }
+        public char estado { get; set; }
         public DateTime FechaModificacion { get; set; }
 
 

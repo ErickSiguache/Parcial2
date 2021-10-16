@@ -6,7 +6,7 @@ namespace Parcial2.Models
     public class Creditos
     {
         [Key]
-        public int id { get; set; }
+        public int CreditosID { get; set; }
         public int EmpresaID { get; set; }
         public int OrdenID { get; set; }
         public int ClienteID { get; set; }

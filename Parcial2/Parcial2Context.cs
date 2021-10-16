@@ -12,11 +12,12 @@ namespace Parcial2
 
         //Contexto de los metodos
         public DbSet<EncabezadoOrden> EncabezadoOrden { get; set; }
-        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Cliente> Cliente { get; set; }
         public DbSet<Empresa> Empresa { get; set; }
         public DbSet<Creditos> Creditos { get; set; }
         public DbSet<Mesas> Mesas { get; set; }
         public DbSet<Usuario> Usuario { get; set; }
+        public DbSet<Pagos> Pagos { get; set; }
 
     }
 }

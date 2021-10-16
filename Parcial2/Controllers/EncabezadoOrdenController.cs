@@ -46,6 +46,43 @@ namespace Parcial2.Controllers
             return NotFound();
         }
 
+        /// <summary>
+        /// Metodo de retorno de registros filtras por ID
+        /// </summary>
+        /// <param name="id"> Representa el valor entero del campo ID </param>
+        /// <returns></returns>
+        [HttpGet]
+        [Route("api/EncabezadoOrden/{id}")]
+        public IActionResult getbyId(int id)
+        {
+            var encabezadoOrden = from e in _contexto.EncabezadoOrden
+                                  join empre in _contexto.Empresa on e.EmpresaID equals empre.EmpresaID
+                                  join mes in _contexto.Mesas on e.MesaID equals mes.MesaID
+                                  join user in _contexto.Usuario on e.UsuarioID equals user.UsuarioID
+                                  where e.EncabezadoOrdenID == id //Filtro por ID
+                                  select new
+                                  {
+                                      e.EncabezadoOrdenID,
+                                      empre.NombreEmpresa,
+                                      user.Nombre,
+                                      e.TipoOrden,
+                                      e.FechaOrden,
+                                      mes.DescripcionMesa,
+                                      e.Cliente,
+                                      e.EstadoOrden,
+                                      e.TipoPago,
+                                      e.Estado,
+                                      e.FechaCreacion,
+                                      e.FechaModificacion
+                                  }
+                                  ;
+            if (encabezadoOrden != null)
+            {
+                return Ok(encabezadoOrden);
+            }
+            return NotFound();
+        }
+
 
         /// <summary>
         /// Metodo de insertar datos a la tabla encabezado orden
